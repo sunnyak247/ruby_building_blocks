@@ -1,8 +1,8 @@
 def stock_picker(stock_prices)
   
   i = 0
-  lowest = 0
-  highest = 0
+  best_buy_price = 0
+  best_sell_price = 0
   profit = 0
   
   while i < stock_prices.length
@@ -15,8 +15,8 @@ def stock_picker(stock_prices)
     diff = high_stock_price - low_stock_price
     if diff > profit
       profit = diff
-      lowest = low_stock_price
-      highest = high_stock_price
+      best_buy_price = i
+      best_sell_price = j
     else
       j += 1
     end
@@ -24,7 +24,7 @@ def stock_picker(stock_prices)
     
   i += 1
   end
-  [lowest, highest]
+  [best_buy_price, best_sell_price]
 end
 
 puts stock_picker([17,3,6,9,15,8,6,1,10])
